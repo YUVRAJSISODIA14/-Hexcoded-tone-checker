@@ -4,5 +4,6 @@ torch
 deepface
 opencv-python
 mtcnn
-numpy
+tf-keras
+numpy<2
 Pillow
