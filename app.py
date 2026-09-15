@@ -1,9 +1,16 @@
 import streamlit as st
+import os
+
+# Transformers only needs to see PyTorch here — forcing this avoids it
+# trying to wire up a TensorFlow/Keras 3 path we don't need and that
+# conflicts with the tf-keras package DeepFace requires.
+os.environ["USE_TF"] = "0"
+os.environ["USE_TORCH"] = "1"
+
 from transformers import pipeline
 from deepface import DeepFace
 import numpy as np
 from PIL import Image
-import os
 
 st.set_page_config(page_title="Tone / Brand-Fit Checker", layout="centered")
 
